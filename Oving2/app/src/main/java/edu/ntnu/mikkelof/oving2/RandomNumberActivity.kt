@@ -6,11 +6,12 @@ import android.view.View
 import android.widget.Toast
 
 class RandomNumberActivity : Activity() {
-    var upperLimit = 100
+    var upperLimit : Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_main)
+        setContentView(R.layout.random_number_activity)
+        upperLimit = intent.getIntExtra("upperLimit", upperLimit)
         Toast.makeText(this, randomNum().toString(), Toast.LENGTH_LONG).show()
     }
 
