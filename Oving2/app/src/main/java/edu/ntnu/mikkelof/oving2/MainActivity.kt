@@ -5,6 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.TextView
 import android.widget.Toast
 
 class MainActivity : Activity() {
@@ -30,7 +31,8 @@ class MainActivity : Activity() {
         }
         if (data != null) {
             num = data.getIntExtra("num", num)
-            Toast.makeText(this, num.toString(), Toast.LENGTH_LONG).show()
+            val textView: TextView = findViewById(R.id.textView) as TextView
+            textView.text = num.toString()
         }
     }
 }
