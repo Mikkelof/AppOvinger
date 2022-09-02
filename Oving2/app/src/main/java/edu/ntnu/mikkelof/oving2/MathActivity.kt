@@ -55,7 +55,7 @@ class MathActivity : Activity()  {
         if (corAns == answer.toInt()) {
             Toast.makeText(this, "Riktig!", Toast.LENGTH_LONG).show()
         } else {
-            Toast.makeText(this, "Feil, riktig svar er $answer", Toast.LENGTH_LONG).show()
+            Toast.makeText(this, "Feil, riktig svar er $corAns", Toast.LENGTH_LONG).show()
         }
         getRandomNums(upperLimit.toInt())
     }
@@ -64,7 +64,6 @@ class MathActivity : Activity()  {
         val intent = Intent(".RandomNumberActivity")
         intent.putExtra("upperLimit", upperLimit)
         startActivityForResult(intent, num)
-
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
