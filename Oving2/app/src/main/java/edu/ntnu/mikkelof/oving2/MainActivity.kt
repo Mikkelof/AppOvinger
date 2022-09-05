@@ -23,6 +23,11 @@ class MainActivity : Activity() {
         startActivityForResult(intent, num)
     }
 
+    fun onClickStartMathActivity(v: View?) {
+        val intent = Intent(".MathActivity")
+        startActivity(intent)
+    }
+
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode != RESULT_OK) {
