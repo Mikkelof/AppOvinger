@@ -37,7 +37,7 @@
         android:id="@+id/addButton"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:onClick="addFriend"
+        android:onClick="onClickAddFriend"
         android:text="Add new friend"
         app:layout_constraintBottom_toTopOf="@+id/listView"
         app:layout_constraintTop_toTopOf="parent"
