@@ -46,4 +46,23 @@ class MainActivity : Activity() {
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, friends)
         listView.adapter = adapter
     }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        if (resultCode == 1) {
+            val data: Intent? = data
+            if (data != null) {
+                val name: String? = data.getStringExtra("name")
+                val date: String? = data.getStringExtra("date")
+                val position: Int? = data.getStringExtra("position")?.toIntOrNull()
+
+                if (position != null) {
+                    friends.get(position).name = name
+                    friends.get(position).dateOfBirth = date
+                }
+                Toast.makeText(applicationContext,
+                    "Information about $name updated",
+                    Toast.LENGTH_LONG ).show()
+            }
+        }
+    }
 }
