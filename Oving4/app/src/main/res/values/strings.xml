@@ -1,7 +1,5 @@
 <resources>
     <string name="app_name">Oving4</string>
-    <string name="next">Neste</string>
-    <string name="previous">Forrige</string>
 
     <string-array name="movies">
         <item>Shrek 1</item>
@@ -10,9 +8,9 @@
     </string-array>
 
     <string-array name="moviedescriptions">
-        <item>The first movie in the Shrek series</item>
-        <item>The second movie in the Shrek series</item>
-        <item>The third movie in the Shrek series</item>
+        <item>The first Shrek movie</item>
+        <item>The second Shrek movie</item>
+        <item>The third Shrek movie</item>
     </string-array>
 
     <array name="images">

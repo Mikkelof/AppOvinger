@@ -7,9 +7,9 @@ import android.widget.ArrayAdapter
 import android.widget.ListView
 import androidx.fragment.app.ListFragment
 
-class InfoFragment : ListFragment() {
-    private var mListener: OnFragmentInteractionListener? = null
+class MovieListFragment : ListFragment(){
     private var movies: Array<String> = arrayOf()
+    private var mListener: OnFragmentInteractionListener? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,7 +20,6 @@ class InfoFragment : ListFragment() {
     }
 
     interface OnFragmentInteractionListener {
-
         fun onFragmentInteraction(index: Int?)
     }
 
@@ -39,9 +38,12 @@ class InfoFragment : ListFragment() {
             )
         }
     }
-
     override fun onDetach() {
         super.onDetach()
         mListener = null
     }
+
+
+
+
 }

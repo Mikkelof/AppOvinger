@@ -1,27 +1,28 @@
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="horizontal"
-    android:padding="16dp"
     tools:context=".MainActivity">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/info"
-        android:name="com.example.oving4.InfoFragment"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="2dp"
-        tools:context=".InfoFragment" />
+    <LinearLayout
+        android:id="@+id/content"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <androidx.fragment.app.FragmentContainerView
-        android:id="@+id/image"
-        android:name="com.example.oving4.ImageFragment"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:padding="2dp"
-        tools:context=".ImageFragment" />
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/movieListFragment"
+            android:name="com.example.oving4.MovieListFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
 
-</LinearLayout>
+        <androidx.fragment.app.FragmentContainerView
+            android:id="@+id/infoFragment"
+            android:name="com.example.oving4.InfoFragment"
+            android:layout_width="match_parent"
+            android:layout_height="300dp" />
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
