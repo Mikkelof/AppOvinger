@@ -1,9 +1,11 @@
 package com.example.oving4
 
+import android.content.res.Configuration
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import androidx.fragment.app.FragmentTransaction
 
 class MainActivity : AppCompatActivity(), MovieListFragment.OnFragmentInteractionListener
 {
