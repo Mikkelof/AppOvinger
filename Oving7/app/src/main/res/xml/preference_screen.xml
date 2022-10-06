@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ListPreference
+        app:defaultValue="@string/night_mode_default_value"
+        app:entries="@array/night_mode_entries"
+        app:entryValues="@array/night_mode_values"
+        app:icon="@drawable/settings_icon"
+        app:key="@string/night_mode"
+        app:title="@string/night_mode_title"
+        app:useSimpleSummaryProvider="true" />
+
+</PreferenceScreen>
