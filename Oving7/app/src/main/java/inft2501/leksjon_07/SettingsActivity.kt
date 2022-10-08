@@ -37,7 +37,7 @@ class SettingsActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferen
 	}
 
 	override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-		if (key == getString(R.string.colors)) myPreferenceManager.updateColor()
+		println("placeholder")
 	}
 
 	override fun provideSummary(preference: ListPreference?): CharSequence {

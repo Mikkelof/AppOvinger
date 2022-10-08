@@ -21,23 +21,6 @@ class MyPreferenceManager(private val activity: AppCompatActivity) {
 		return preferences.getString(key, defaultValue) ?: defaultValue
 	}
 
-	fun updateColor(): Int {
-		val colorDefault = resources.getIntArray(R.array.color_values_not_string)
-		println(colorDefault[2])
-		val value = getString(
-			resources.getString(R.string.colors),
-			resources.getString(R.string.colors_default_value)
-		)
-		println(value)
-		when (value) {
-			"#00FF00" -> println("1")//minLayout.root.setBackgroundColor(colorDefault[1])
-			"#0000FF" -> println("2")
-			"#FF0000" -> println("3")
-			"#FFFF00" -> println("4")//activity.findViewById<ConstraintLayout>(R.id.constrainLayout).setBackgroundColor(colorDefault[2])//activity.findViewById<ConstraintLayout>(R.id.constrainLayout).setBackgroundColor(colorDefault[3])*/
-		}
-		return 1
-	}
-
 	fun registerListener(activity: SharedPreferences.OnSharedPreferenceChangeListener) {
 		preferences.registerOnSharedPreferenceChangeListener(activity)
 	}

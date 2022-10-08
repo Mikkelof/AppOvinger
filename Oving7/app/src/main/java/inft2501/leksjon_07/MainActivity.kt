@@ -34,10 +34,6 @@ class MainActivity : AppCompatActivity() {
 		db.insertMoviesFromJson(moviesArray)
 		saveMoviesToObject(moviesArray)
 		fileManager.writeToTxt()
-
-		val pref = MyPreferenceManager(this)
-		pref.updateColor()
-
 	}
 
 	private fun saveMoviesToObject(moviesJSON: JSONArray?){
