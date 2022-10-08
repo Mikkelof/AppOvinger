@@ -13,4 +13,38 @@
         <item>MODE_NIGHT_YES</item>
         <item>MODE_NIGHT_AUTO_BATTERY</item>
     </string-array>
+
+    <string-array name="color_entries">
+        <item>Green</item>
+        <item>Blue</item>
+        <item>Red</item>
+        <item>Yellow</item>
+    </string-array>
+
+    <string-array name="color_values">
+        <item>#00FF00</item>
+        <item>#0000FF</item>
+        <item>#FF0000</item>
+        <item>#FFFF00</item>
+    </string-array>
+
+    <array name="color_values_not_string">
+        <item>#00FF00</item>
+        <item>#0000FF</item>
+        <item>#FF0000</item>
+        <item>#FFFF00</item>
+    </array>
+
+    <string-array name="color_values_string">
+        <item>@string/l</item>
+        <item>@string/m</item>
+        <item>@string/f</item>
+        <item>@string/o</item>
+    </string-array>
+
+
+    <string name="l">"#00FF00"</string>
+    <string name="m">"#0000FF"</string>
+    <string name="f">"#FF0000"</string>
+    <string name="o">"#FFFF00"</string>
 </resources>

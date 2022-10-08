@@ -1,11 +1,47 @@
 <resources>
-    <string name="app_name">Datalagring</string>
-    <string name="info">Bruk menyen til å hente ut informasjon</string>
-    <string name="settings">Innstillinger</string>
-
+    <string name="app_name">Task 7</string>
+    <string name="info">Use the Menu to collect information</string>
+    <string name="settings">Settings</string>
+    <string name="back_button">Back</string>
+    <string name="info_settings">Top right corner to change background-color</string>
     <string name="night_mode_title">Nattmodus</string>
     <string name="night_mode">nightMode</string>
     <string name="night_mode_default_value">MODE_NIGHT_FOLLOW_SYSTEM</string>
+    <string name="colors_default_value">#FFFFFF</string>
 
-    <string name="back_button">Tilbake</string>
+    <string name="colors">colors</string>
+    <string name="colors_title">Colors Title</string>
+    <string name="white">White</string>
+    <string name="bright_pink">Bright Pink</string>
+    <string name="red">Red</string>
+    <string name="orange">Orange</string>
+    <string name="yellow">Yellow</string>
+    <string name="chartreuse">Chartreuse</string>
+    <string name="green">Green</string>
+    <string name="spring_green">Spring Green</string>
+    <string name="cyan">Cyan</string>
+    <string name="azure">Azure</string>
+    <string name="blue">Blue</string>
+    <string name="violet">Violet</string>
+    <string name="magenta">Magenta</string>
+
+
+    <string-array name="color_names">
+        <item>@string/white</item>
+        <item>@string/bright_pink</item>
+        <item>@string/red</item>
+        <item>@string/orange</item>
+        <item>@string/yellow</item>
+        <item>@string/chartreuse</item>
+        <item>@string/green</item>
+        <item>@string/spring_green</item>
+        <item>@string/cyan</item>
+        <item>@string/azure</item>
+        <item>@string/blue</item>
+        <item>@string/violet</item>
+        <item>@string/magenta</item>
+    </string-array>
+
+
+
 </resources>

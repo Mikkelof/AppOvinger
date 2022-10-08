@@ -1,5 +1,6 @@
 package inft2501.leksjon_07
 
+import android.content.Intent
 import android.content.SharedPreferences
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -25,22 +26,23 @@ class SettingsActivity : AppCompatActivity(), SharedPreferences.OnSharedPreferen
 		setContentView(ui.root)
 
 		supportFragmentManager
-				.beginTransaction()
-				.replace(R.id.settings_container, SettingsFragment())
-				.commit()
+			.beginTransaction()
+			.replace(R.id.settings_container, SettingsFragment())
+			.commit()
 
 		ui.button.setOnClickListener {
+			setResult(RESULT_OK, Intent().putExtra("colors",myPreferenceManager.getString("colors","none")))
 			finish()
 		}
 	}
 
 	override fun onSharedPreferenceChanged(sharedPreferences: SharedPreferences?, key: String?) {
-		if (key == getString(R.string.night_mode)) myPreferenceManager.updateNightMode()
+		if (key == getString(R.string.colors)) myPreferenceManager.updateColor()
 	}
 
 	override fun provideSummary(preference: ListPreference?): CharSequence {
 		return when (preference?.key) {
-			getString(R.string.night_mode) -> preference.entry
+			getString(R.string.colors) -> preference.entry
 			else                           -> "Unknown Preference"
 		}
 	}

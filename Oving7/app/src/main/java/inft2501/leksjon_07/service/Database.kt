@@ -2,65 +2,39 @@ package inft2501.leksjon_07.service
 
 import android.content.Context
 import inft2501.leksjon_07.managers.DatabaseManager
+import org.json.JSONArray
 
 class Database(context: Context) : DatabaseManager(context) {
 
-	init {
-		try {
-			this.clear()
-			this.insert("Jane Austen", "Pride and Prejudice")
-			this.insert("Harper Lee", "To Kill a Mockingbird")
-			this.insert("Charles Dickens", "A Tale of Two Cities")
-			this.insert("F. Scott Fitzgerald", "The Great Gatsby")
-			this.insert("Carl Bernstein", "All The Presidents Men")
-			this.insert("Gabriel García Márquez", "One Hundred Years of Solitude")
-			this.insert("Charles Dickens", "Great Expectations")
-			this.insert("Bob Woodward", "All The Presidents Men")
-			this.insert("Charles Dickens", "Oliver Twist")
-		} catch (e: Exception) {
-			e.printStackTrace()
+	fun insertMoviesFromJson(movies: JSONArray?){
+		if (movies != null) {
+			for (i in 0 until movies.length()) {
+				val userDetail = movies.getJSONObject(i)
+				this.insert(
+					userDetail.getString("title"),
+					userDetail.getString("director"),
+					userDetail.getString("actor").split(",").toTypedArray().get(0),
+					userDetail.getString("actor").split(",").toTypedArray().get(1).trimStart()
+				)
+			}
 		}
 	}
 
-	val allAuthors: ArrayList<String>
-		get() = performQuery(TABLE_AUTHOR, arrayOf(AUTHOR_NAME))
+	val allMovies: ArrayList<String>
+		get() = performQuery(TABLE_MOVIE, arrayOf(ID,MOVIE_TITLE))
 
-	val allBooks: ArrayList<String>
-		get() = performQuery(TABLE_BOOK, arrayOf(ID, BOOK_TITLE), null)
+	val allActors: ArrayList<String>
+		get() = performQuery(TABLE_ACTOR, arrayOf(ID, ACTOR_NAME), null)
 
-
-	val allBooksAndAuthors: ArrayList<String>
+	val allMoviesAndActors: ArrayList<String>
 		get() {
-			val select = arrayOf("$TABLE_BOOK.$BOOK_TITLE", "$TABLE_AUTHOR.$AUTHOR_NAME")
-			val from = arrayOf(TABLE_AUTHOR, TABLE_BOOK, TABLE_AUTHOR_BOOK)
-			val join = JOIN_AUTHOR_BOOK
+			val select = arrayOf("$TABLE_ACTOR.$ACTOR_NAME", "$TABLE_MOVIE.$MOVIE_TITLE")
+			val from = arrayOf(TABLE_MOVIE, TABLE_ACTOR, TABLE_ACTOR_MOVIE)
+			val join = JOIN_ACTOR_MOVIE
 
 			return performRawQuery(select, from, join)
 		}
 
-	fun getBooksByAuthor(author: String): ArrayList<String> {
-		val select = arrayOf("$TABLE_BOOK.$BOOK_TITLE")
-		val from = arrayOf(TABLE_AUTHOR, TABLE_BOOK, TABLE_AUTHOR_BOOK)
-		val join = JOIN_AUTHOR_BOOK
-		val where = "$TABLE_AUTHOR.$AUTHOR_NAME='$author'"
-
-		return performRawQuery(select, from, join, where)
-	}
-
-	fun getAuthorsByBook(title: String): ArrayList<String> {
-		val select = arrayOf("$TABLE_AUTHOR.$AUTHOR_NAME")
-		val from = arrayOf(TABLE_AUTHOR, TABLE_BOOK, TABLE_AUTHOR_BOOK)
-		val join = JOIN_AUTHOR_BOOK
-		val where = "$TABLE_BOOK.$BOOK_TITLE='$title'"
-
-		/*
-		You can also just write out the querys manually like below, but this increases the chance of
-		spelling mistakes and, creates a lot of work if you want to change names of fields etc.
-		later.
-		 */
-		val query =
-			"SELECT AUTHOR.name FROM AUTHOR, BOOK, AUTHOR_BOOK " + "WHERE AUTHOR._id = AUTHOR_BOOK.author_id " + "and BOOK._id = AUTHOR_BOOK.book_id " + "and BOOK.title = '$title'"
-
-		return performRawQuery(select, from, join, where)
-	}
+	val moviesBySpecificDirector: ArrayList<String>
+		get() = performQuery(TABLE_MOVIE,arrayOf(MOVIE_TITLE) ,"name = 'Sergio Leone'")
 }

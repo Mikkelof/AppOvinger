@@ -1,0 +1,29 @@
+{
+  "movies": [
+    {
+      "title": "Fight Club",
+      "director": "David Fincher",
+      "actor": "Brad Pitt, Edward Norton"
+    },
+    {
+      "title": "Deliverance",
+      "director": "John Boorman",
+      "actor": "Jon Voight, Burt Reynolds"
+    },
+    {
+      "title": "The good, the bad and the ugly",
+      "director": "Sergio Leone",
+      "actor": "Clint Eastwood, Eli Wallach"
+    },
+    {
+      "title": "300",
+      "director": "Zach Snyder",
+      "actor": "Gerard Butler, Lena Headey"
+    },
+    {
+      "title": "Black Hawk Down",
+      "director": "Ridley Scott",
+      "actor": "Josh Hartnett, Ewan McGregor"
+    }
+  ]
+}

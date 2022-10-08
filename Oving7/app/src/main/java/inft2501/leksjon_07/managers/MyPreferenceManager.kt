@@ -12,14 +12,6 @@ class MyPreferenceManager(private val activity: AppCompatActivity) {
 	private val preferences = PreferenceManager.getDefaultSharedPreferences(activity)
 	private val editor: SharedPreferences.Editor = preferences.edit()
 
-	fun example() {
-		val preferences: SharedPreferences = activity.getSharedPreferences("prefs", 0)
-		val editor: SharedPreferences.Editor = preferences.edit()
-		editor.putString("playerName", "GameMaster3000")
-		editor.putBoolean("darkMode", true)
-		editor.apply()
-	}
-
 	fun putString(key: String, value: String) {
 		editor.putString(key, value)
 		editor.apply()
@@ -29,18 +21,21 @@ class MyPreferenceManager(private val activity: AppCompatActivity) {
 		return preferences.getString(key, defaultValue) ?: defaultValue
 	}
 
-	fun updateNightMode() {
-		val darkModeValues = resources.getStringArray(R.array.night_mode_values)
+	fun updateColor(): Int {
+		val colorDefault = resources.getIntArray(R.array.color_values_not_string)
+		println(colorDefault[2])
 		val value = getString(
-				resources.getString(R.string.night_mode),
-				resources.getString(R.string.night_mode_default_value)
+			resources.getString(R.string.colors),
+			resources.getString(R.string.colors_default_value)
 		)
+		println(value)
 		when (value) {
-			darkModeValues[0] -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_FOLLOW_SYSTEM)
-			darkModeValues[1] -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
-			darkModeValues[2] -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
-			darkModeValues[3] -> AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_AUTO_BATTERY)
+			"#00FF00" -> println("1")//minLayout.root.setBackgroundColor(colorDefault[1])
+			"#0000FF" -> println("2")
+			"#FF0000" -> println("3")
+			"#FFFF00" -> println("4")//activity.findViewById<ConstraintLayout>(R.id.constrainLayout).setBackgroundColor(colorDefault[2])//activity.findViewById<ConstraintLayout>(R.id.constrainLayout).setBackgroundColor(colorDefault[3])*/
 		}
+		return 1
 	}
 
 	fun registerListener(activity: SharedPreferences.OnSharedPreferenceChangeListener) {
